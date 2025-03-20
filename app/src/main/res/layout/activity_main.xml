@@ -11,39 +11,40 @@
 
     <TextView
         android:id="@+id/image_header"
-        android:layout_width="0dp"
-        android:layout_height="180dp"
+        android:layout_width="384dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
         android:text="Movie Search"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <EditText
         android:id="@+id/et_search"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginBottom="92dp"
         android:hint="Please enter movie tips"
         android:paddingHorizontal="16dp"
         android:textColorHint="#009688"
-        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_header" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="264dp"
         android:layout_height="50dp"
+        android:layout_marginTop="24dp"
         android:text="Search"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.401"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="132dp"
+        app:layout_constraintTop_toBottomOf="@id/et_search"
         tools:ignore="MissingConstraints" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -55,6 +56,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_header" />
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
