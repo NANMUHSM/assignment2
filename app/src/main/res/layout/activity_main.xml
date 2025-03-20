@@ -5,40 +5,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#94A8B3"
+    android:background="#DEE3E6"
     tools:context=".view.MainActivity">
+
 
     <TextView
         android:id="@+id/image_header"
         android:layout_width="0dp"
         android:layout_height="180dp"
         android:text="Movie Search"
-        android:textSize="30sp"
+        android:textAlignment="center"
         android:textColor="@color/black"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="24dp"
-        android:background="#94A6B1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_header" />
-
-    <SearchView
-        android:layout_width="277dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="16dp"
+    <EditText
+        android:id="@+id/et_search"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="92dp"
+        android:hint="Please enter movie tips"
+        android:paddingHorizontal="16dp"
+        android:textColorHint="#009688"
         app:layout_constraintBottom_toTopOf="@+id/button"
-        android:searchHintIcon="@color/white"
-        tools:layout_editor_absoluteX="48dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button"
@@ -49,4 +45,16 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="132dp"
         tools:ignore="MissingConstraints" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:background="#DEE3E6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_header" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
