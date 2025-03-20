@@ -1,6 +1,7 @@
 package com.example.moviesearch.view;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,7 +33,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
         movieViewModel = new ViewModelProvider(this).get(MovieViewModel.class);
 
         //get imdbID
-        String imdbID = getIntent().getStringExtra("imdbId");
+        String imdbID = getIntent().getStringExtra("imdbID");
+        Log.d("MovieDetailsActivity", "Received imdbID: " + imdbID);
         if(imdbID != null){
             movieViewModel.getMovieDetails(imdbID,API_KEY);
         }
