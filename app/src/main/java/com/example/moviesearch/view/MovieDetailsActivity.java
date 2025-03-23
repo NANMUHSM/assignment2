@@ -23,10 +23,11 @@ public class MovieDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         //binding UI
         binding = ItemDetailLayoutBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        binding.backButton.setOnClickListener(v -> finish());
 
 
         //initial viewModel
@@ -43,7 +44,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         movieViewModel.getMovieDetail().observe(this,movie -> {
             if(movie != null){
                 binding.titleTxt.setText(movie.getTitle());
-                binding.descriptionText.setText(movie.getPlot());
+                binding.descriptionText.setText(movie.getDescription());
                 binding.ratingText.setText("Rated: " +movie.getRated());
                 Glide.with(this).load(movie.getPoster()).into(binding.imageview);
             }
