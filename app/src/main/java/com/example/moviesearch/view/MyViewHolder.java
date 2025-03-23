@@ -25,6 +25,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
     public void bind(Movie movie, MyAdapter.OnItemClickListener listener) {
         binding.titleTxt.setText(movie.getTitle());
         binding.descriptionText.setText(movie.getDescription());
+        binding.typeText.setText("Type: " +movie.getType());
 
         Glide.with(binding.getRoot().getContext())
                 .load(movie.getPoster())

@@ -11,9 +11,6 @@ public class Movie {
     @SerializedName("Year")
     private String year;
 
-    @SerializedName("Description")
-    private String description;
-
     @SerializedName("imdbID")
     private String imdbID;
 
@@ -26,7 +23,7 @@ public class Movie {
     //for movie details page
 
     @SerializedName("Plot")
-    private  String plot;
+    private  String description;
 
     @SerializedName("Rated")
     private  String rated;
@@ -45,13 +42,6 @@ public class Movie {
         this.imdbID = imdbID;
     }
 
-    public String getPlot() {
-        return plot;
-    }
-
-    public void setPlot(String plot) {
-        this.plot = plot;
-    }
 
     public String getPoster() {
         return poster;
