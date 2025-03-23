@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moviesearch.R;
+import com.example.moviesearch.databinding.ActivityMainBinding;
 import com.example.moviesearch.model.Movie;
 import com.example.moviesearch.viewmodel.MovieViewModel;
 
@@ -21,34 +22,33 @@ public class MainActivity extends AppCompatActivity {
     private static final String API_KEY = "d40b7945";
     private MovieViewModel movieViewModel;
     private  MyAdapter movieAdapter;
-    private EditText searchMoviesBox;
-    private Button searchBtn;
+    private ActivityMainBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         //binding UI
-        searchMoviesBox = findViewById(R.id.et_search);
-        searchBtn = findViewById(R.id.button);
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
 
         //initial viewModel
         movieViewModel = new ViewModelProvider(this).get(MovieViewModel.class);
 
         //set recyclerView
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         movieAdapter = new MyAdapter(new ArrayList<Movie>(), movie -> {
             Intent intent = new Intent(MainActivity.this, MovieDetailsActivity.class);
             intent.putExtra("imdbID", movie.getImdbID());
             startActivity(intent);
         });
-        recyclerView.setAdapter(movieAdapter);
+        binding.recyclerView.setAdapter(movieAdapter);
 
         //search event
-        searchBtn.setOnClickListener(v -> {
-            String query = searchMoviesBox.getText().toString().trim();
+        binding.button.setOnClickListener(v -> {
+            String query = binding.etSearch.getText().toString().trim();
             if(!query.isEmpty()){
                 movieViewModel.searchMovies(query,API_KEY);
             }else {

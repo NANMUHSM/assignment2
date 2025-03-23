@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.moviesearch.R;
+import com.example.moviesearch.databinding.ItemLayoutBinding;
 import com.example.moviesearch.model.Movie;
 
 import java.util.List;
@@ -29,22 +30,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout,parent,false);
-        return new MyViewHolder(view);
+        ItemLayoutBinding binding = ItemLayoutBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        return new MyViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Movie movie = movies.get(position);
-        holder.movieTitle.setText(movie.getTitle());
-        holder.movieDescription.setText(movie.getDescription());
-
-        Glide.with(holder.itemView.getContext()).load(movie.getPoster()).into(holder.movieImage);
-        holder.itemView.setOnClickListener(v -> {
-            if(listener != null && movie != null){
-                listener.onItemClick(movie);
-            }
-        });
+        holder.bind(movies.get(position),listener);
 
     }
 
